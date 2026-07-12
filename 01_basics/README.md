@@ -53,3 +53,7 @@ flowchart TD
 
 2. **Dynamic Typing**
    Python determines variable types at runtime (dynamically typed) rather than compile time. This allows variables to change types during execution, offering high flexibility and ease of development.
+
+3. **Memory References & Mutability**
+   Python variables are pointers to memory objects. Some types can be changed in-place (mutable), while others cannot (immutable).
+   👉 **Read the full guide here:** [Memory References & Mutability](./memory_reference.md)

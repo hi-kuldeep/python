@@ -11,6 +11,7 @@ Here is the index of chapters and topics covered in this repository:
 | Chapter | Topic | Key Focus Areas | Link |
 |:---|:---|:---|:---|
 | **01** | **Python Basics & Inner Workings** | PVM, Compiling to Bytecode, `.pyc` caching in `__pycache__`, Python implementations (CPython, PyPy). | [Go to Basics & Inner Workings 🚀](./01_basics/README.md) |
+| **01.1** | **Memory Reference & Mutability** | Variables as pointers, reference sharing, mutable vs immutable types with flow diagrams. | [Go to Memory Reference 🧠](./01_basics/memory_reference.md) |
 
 ---
 
