@@ -35,8 +35,9 @@ graph LR
     username -.->|old reference| str1
     username ===>|current reference| str2
     
-    x ===> val15
-    y ===> val10
+    x -.->|old reference| val10
+    x ===>|current reference| val15
+    y ===>|points to 10| val10
 
     style str1 stroke-dasharray: 5 5,fill:#f5f5f5,stroke:#999
     style str2 fill:#d5e8d4,stroke:#82b366,stroke-width:2px
