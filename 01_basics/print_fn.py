@@ -1,3 +1,3 @@
-from hello_world import chai
+from hello_world import printAnything
 
-chai(23)
+printAnything(23)

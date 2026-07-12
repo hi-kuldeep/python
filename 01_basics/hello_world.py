@@ -2,7 +2,7 @@ print("hello world")
 
 
 
-def chai(n):
+def printAnything(n):
     print(n)
 
-chai("kuldeep")
+printAnything("kuldeep")
