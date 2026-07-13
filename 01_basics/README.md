@@ -57,3 +57,7 @@ flowchart TD
 3. **Memory References & Mutability**
    Python variables are pointers to memory objects. Some types can be changed in-place (mutable), while others cannot (immutable).
    👉 **Read the full guide here:** [Memory References & Mutability](./memory_reference.md)
+
+4. **Built-in Data Types**
+   Python provides a rich set of built-in data types (like numbers, sequences, sets, and mappings), categorized by their mutability.
+   👉 **Read the full guide here:** [Python Data Types](./datatype.md)
