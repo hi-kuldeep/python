@@ -65,3 +65,7 @@ flowchart TD
 5. **Numbers (Deep Dive)**
    Learn about Python's numeric types (`int`, `float`, `complex`), integer caching, float representation errors, and advanced math modules (`decimal`, `fractions`).
    👉 **Read the full guide here:** [Python Numbers: Deep Dive](./numbers.md)
+
+6. **Strings (Deep Dive)**
+   Understand Python's string type (`str`), positive and negative indexing, slicing (`[start:stop:step]`), formatting styles (F-Strings, `.format()`, `%`), raw strings (`r""`), and core built-in methods.
+   👉 **Read the full guide here:** [Python Strings: Deep Dive](./string.md)
