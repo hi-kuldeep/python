@@ -69,3 +69,7 @@ flowchart TD
 6. **Strings (Deep Dive)**
    Understand Python's string type (`str`), positive and negative indexing, slicing (`[start:stop:step]`), formatting styles (F-Strings, `.format()`, `%`), raw strings (`r""`), and core built-in methods.
    👉 **Read the full guide here:** [Python Strings: Deep Dive](./string.md)
+
+7. **Lists (Deep Dive)**
+   Learn about Python's list type (`list`), mutability, slice reassignment, and key coding gotchas/best practices (such as slice assignment vs raw strings, item insertion, and element deletion).
+   👉 **Read the full guide here:** [Python Lists: Deep Dive](./list.md)

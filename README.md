@@ -15,6 +15,7 @@ Here is the index of chapters and topics covered in this repository:
 | **01.2** | **Python Data Types** | Hierarchy/mutability tree, core built-in types (Numbers, Sequences, Mappings, Sets) summary, and type casting. | [Go to Data Types 📊](./01_basics/datatype.md) |
 | **01.3** | **Numbers Deep Dive** | Integers (unlimited precision, caching optimization), Floats (precision issues, special values), complex numbers, fractions, decimals. | [Go to Numbers 🔢](./01_basics/numbers.md) |
 | **01.4** | **Strings Deep Dive** | String creation & multiline blocks, indexing & slicing, formatting (F-strings), raw strings (`r""`), and core methods. | [Go to Strings 🧵](./01_basics/string.md) |
+| **01.5** | **Lists Deep Dive** | List operations & slicing, mutability, slice reassignment, and list modification gotchas/best practices. | [Go to Lists 📋](./01_basics/list.md) |
 
 ---
 
