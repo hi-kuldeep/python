@@ -61,3 +61,7 @@ flowchart TD
 4. **Built-in Data Types**
    Python provides a rich set of built-in data types (like numbers, sequences, sets, and mappings), categorized by their mutability.
    👉 **Read the full guide here:** [Python Data Types](./datatype.md)
+
+5. **Numbers (Deep Dive)**
+   Learn about Python's numeric types (`int`, `float`, `complex`), integer caching, float representation errors, and advanced math modules (`decimal`, `fractions`).
+   👉 **Read the full guide here:** [Python Numbers: Deep Dive](./numbers.md)
