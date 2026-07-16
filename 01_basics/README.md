@@ -77,3 +77,7 @@ flowchart TD
 8. **Dictionaries (Deep Dive)**
    Learn about Python's dictionary type (`dict`), key-value access styles (brackets vs `.get()`), KeyError gotchas, modifications, and dictionary iterations using `.items()`.
    👉 **Read the full guide here:** [Python Dictionaries: Deep Dive](./dictionary.md)
+
+9. **Tuples (Deep Dive)**
+   Understand Python's tuple type (`tuple`), the benefits of immutability and memory optimization, tuple slicing, concatenation, counting, and unpacking.
+   👉 **Read the full guide here:** [Python Tuples: Deep Dive](./tuple.md)

@@ -17,6 +17,7 @@ Here is the index of chapters and topics covered in this repository:
 | **01.4** | **Strings Deep Dive** | String creation & multiline blocks, indexing & slicing, formatting (F-strings), raw strings (`r""`), and core methods. | [Go to Strings 🧵](./01_basics/string.md) |
 | **01.5** | **Lists Deep Dive** | List operations & slicing, mutability, slice reassignment, and list modification gotchas/best practices. | [Go to Lists 📋](./01_basics/list.md) |
 | **01.6** | **Dictionaries Deep Dive** | Dictionary creation, value retrieval (brackets vs `.get()`), key modifications, iteration methods, and length. | [Go to Dictionaries 📖](./01_basics/dictionary.md) |
+| **01.7** | **Tuples Deep Dive** | Why we use tuples, immutability compared to lists, slicing, operators, counts, unpacking, and nesting. | [Go to Tuples 🧠](./01_basics/tuple.md) |
 
 ---
 
