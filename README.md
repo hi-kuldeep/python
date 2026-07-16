@@ -16,6 +16,7 @@ Here is the index of chapters and topics covered in this repository:
 | **01.3** | **Numbers Deep Dive** | Integers (unlimited precision, caching optimization), Floats (precision issues, special values), complex numbers, fractions, decimals. | [Go to Numbers 🔢](./01_basics/numbers.md) |
 | **01.4** | **Strings Deep Dive** | String creation & multiline blocks, indexing & slicing, formatting (F-strings), raw strings (`r""`), and core methods. | [Go to Strings 🧵](./01_basics/string.md) |
 | **01.5** | **Lists Deep Dive** | List operations & slicing, mutability, slice reassignment, and list modification gotchas/best practices. | [Go to Lists 📋](./01_basics/list.md) |
+| **01.6** | **Dictionaries Deep Dive** | Dictionary creation, value retrieval (brackets vs `.get()`), key modifications, iteration methods, and length. | [Go to Dictionaries 📖](./01_basics/dictionary.md) |
 
 ---
 

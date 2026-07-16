@@ -73,3 +73,7 @@ flowchart TD
 7. **Lists (Deep Dive)**
    Learn about Python's list type (`list`), mutability, slice reassignment, and key coding gotchas/best practices (such as slice assignment vs raw strings, item insertion, and element deletion).
    👉 **Read the full guide here:** [Python Lists: Deep Dive](./list.md)
+
+8. **Dictionaries (Deep Dive)**
+   Learn about Python's dictionary type (`dict`), key-value access styles (brackets vs `.get()`), KeyError gotchas, modifications, and dictionary iterations using `.items()`.
+   👉 **Read the full guide here:** [Python Dictionaries: Deep Dive](./dictionary.md)
