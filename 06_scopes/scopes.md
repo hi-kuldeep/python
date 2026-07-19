@@ -157,3 +157,41 @@ living_room()
 | **Enclosing** | Living Room | Visible inside nested helper functions. | Use `nonlocal` |
 | **Global** | Garden | Visible to all functions in the file. | Use `global` |
 | **Built-in** | Public Park | Pre-built by Python, visible everywhere. | Do not modify |
+
+---
+
+## 🧠 4. What is Lexical Scope (Static Scope)?
+
+The word **"Lexical"** simply means **"relating to written text"**.
+
+In Python, variables are resolved using **Lexical Scope**. This means:
+> A function's scope is determined by **where the function is written (defined) in the code**, not where it is called at runtime.
+
+Think of it as a function **remembering its birthplace**. No matter where you take the function later in the code, it will always look for variables based on where it was born.
+
+### The Birthplace Example:
+
+```python
+x = 10
+
+def outer():
+    x = 20
+    def inner():
+        # inner() was born inside outer(), so it looks at outer's x
+        print(x) 
+    return inner
+
+# We call outer() which returns the inner() function
+my_func = outer() 
+
+x = 30  # Change global x to 30
+
+# We run the function now in global scope
+my_func() 
+```
+
+#### ❓ What does `my_func()` print?
+It prints **`20`**, not `30`!
+
+* **Why?** Even though we called the function in the global scope where `x` is `30`, the function was physically defined (born) inside `outer()` where `x` was `20`. Because of Lexical Scope, it retains its link to its birthplace. (This behavior is what makes **Closures** possible!).
+
