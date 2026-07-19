@@ -241,3 +241,88 @@ graph TD
       print(f"Hero power is {kwargs['power']}")
   ```
 
+---
+
+## ⚡ 7. Generator Functions & `yield` Under the Hood
+
+Standard functions use **`return`** to send back a value. When a function returns, its **execution frame is destroyed**, and all local variables are lost.
+
+A **Generator Function** uses **`yield`** instead of `return`. It allows a function to produce a sequence of values over time, pausing and resuming its execution state on demand!
+
+### The Problem Setup:
+We want to generate even numbers up to a specified limit.
+
+```python
+def even_generator(limit):
+    for i in range(2, limit + 1, 2):
+        yield i
+```
+
+---
+
+### How Generator Execution Works Under the Hood:
+
+1. **Instantiation**:
+   When you call `gen = even_generator(10)`, Python **does not run the code** inside the function. Instead, it returns a **generator object** (which is a special type of iterator).
+   
+2. **First `next()` Call (or start of `for` loop)**:
+   Python enters the function and runs the code until it hits the first `yield i` (where `i = 2`).
+   * The function **pauses** execution.
+   * Its execution state (including local variables like `i` and `limit`) is saved inside the generator object.
+   * The value `2` is returned to the caller.
+
+3. **Subsequent `next()` Calls**:
+   Python resumes execution **directly after the last `yield` statement**. It continues the loop, increments `i` to `4`, and hits `yield i` again.
+   * Execution pauses again, state is saved, and `4` is returned.
+
+4. **Termination**:
+   Once the loop ends (reaches the limit), the function terminates. Python automatically raises a `StopIteration` exception, which signals to the `for` loop to end cleanly.
+
+---
+
+### 🗺️ The Pause and Resume Cycle (Sequence Flow)
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor Caller as Caller / Loop
+    participant GenObj as Generator Object<br/>(Stores Saved Frame)
+    participant Func as function Body
+
+    Caller->>GenObj: 1. even_generator(10)
+    Note over GenObj: Creates object, code does not run yet
+    GenObj-->>Caller: Returns Generator Object
+
+    Caller->>GenObj: 2. next(gen)
+    GenObj->>Func: Start execution
+    Func->>Func: loop starts (i=2)
+    Func-->>GenObj: hits "yield 2"
+    Note over GenObj: Pauses & Saves state (i=2)
+    GenObj-->>Caller: Returns 2
+
+    Caller->>GenObj: 3. next(gen)
+    GenObj->>Func: Resumes from last yield
+    Func->>Func: loop continues (i=4)
+    Func-->>GenObj: hits "yield 4"
+    Note over GenObj: Pauses & Saves state (i=4)
+    GenObj-->>Caller: Returns 4
+
+    Caller->>GenObj: 4. next(gen)
+    GenObj->>Func: Resumes...
+    Func->>Func: loop ends
+    Func-->>GenObj: raises StopIteration
+    GenObj-->>Caller: raises StopIteration (ends loop)
+```
+
+---
+
+### 📊 `return` vs. `yield` Comparison
+
+| Feature | `return` | `yield` |
+| :--- | :--- | :--- |
+| **Execution** | Runs to completion. | Pauses and resumes. |
+| **Memory** | Returns the entire list/result at once (high memory for large data). | Produces one value at a time on demand (very low memory). |
+| **State Retention** | Discards stack frame and local variables. | Suspends and saves the frame state. |
+| **Object Returned** | The computed value/result. | A generator iterator object. |
+
+
