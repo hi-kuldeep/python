@@ -192,3 +192,52 @@ print(cube(5))   # Output: 125
 Even though `power_factory(2)` has completed and its frame is gone:
 - The inner function `power` keeps a special reference to `exponent` inside its `__closure__` attribute.
 - This prevents the outer variable from being garbage collected!
+
+---
+
+## 🏷️ 6. Keyword Arguments (`**kwargs`) Under the Hood
+
+Just like `*args` packs positional arguments into a **tuple**, the double asterisk **`**kwargs`** packs keyword arguments (named arguments) into a **dictionary** in memory.
+
+### The Problem Setup:
+We want a function that can accept any number of key-value pairs representing entity attributes (like a hero's name, power, enemy, etc.).
+
+```python
+def print_kwargs(**kwargs):
+    # 'kwargs' is a standard Python dictionary
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+```
+
+When you call:
+```python
+print_kwargs(name="shaktiman", power="lazer", enemy="Dr. Jackaal")
+```
+
+### What happens in memory?
+1. Python creates a new **Dictionary Object** in the Heap.
+2. It populates it with the passed key-value pairs: `{'name': 'shaktiman', 'power': 'lazer', 'enemy': 'Dr. Jackaal'}`.
+3. The local parameter `kwargs` in the function's execution frame points to this dictionary object.
+
+#### 🗺️ Memory Reference Layout for `**kwargs`:
+```mermaid
+graph TD
+    subgraph References [Variables / Pointers]
+        kwargs[kwargs]
+    end
+
+    subgraph Heap [Memory Space / Objects]
+        DictObj["Dict Object<br/>{ 'name': 'shaktiman', 'power': 'lazer', 'enemy': 'Dr. Jackaal' }<br/>(Address: 0x102f90b00)"]
+    end
+
+    kwargs ===> DictObj
+```
+
+### 💡 key points on `**kwargs`:
+* **Naming**: The word `kwargs` is just a standard naming convention (short for *keyword arguments*). Only the `**` is syntactically required.
+* **Dictionary Methods**: Because `kwargs` is a dictionary, you can use all standard dictionary methods inside the function, such as `kwargs.keys()`, `kwargs.values()`, or checking for a key:
+  ```python
+  if "power" in kwargs:
+      print(f"Hero power is {kwargs['power']}")
+  ```
+
