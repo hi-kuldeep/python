@@ -162,6 +162,11 @@ car2 = Car("Audi")
 print(Car.total_cars) # Output: 2
 ```
 
+> [!TIP]
+> **Why access `Car.total_cars` (Class Name) instead of `car1.total_cars` (Instance Name)?**
+> * **`Car.total_cars` (Recommended)**: Explicitly tells anyone reading your code: *"This is a shared variable belonging to the Class blueprint."*
+> * **`car1.total_cars` (Not Recommended / Dangerous)**: Reading it works via fallback lookup, but if you do `car1.total_cars = 10`, Python will **not** update the shared class variable! Instead, it creates a brand new instance variable on `car1` that **shadows (hides)** the class variable for `car1`, leading to tricky bugs.
+
 ---
 
 ### B. Static Methods (`@staticmethod`)
