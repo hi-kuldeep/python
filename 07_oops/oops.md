@@ -75,6 +75,15 @@ print(my_ev.brand)        # Inherited from Car! (Tesla)
 print(my_ev.battery_size) # Unique to ElectricCar! (85kWh)
 ```
 
+> [!IMPORTANT]
+> **Why do we use `super()` in `__init__()`, but NOT when reading `self.brand` in child methods?**
+> * **`super()`** is used to **call parent methods** (like calling `Car.__init__()` during object initialization).
+> * Once `super().__init__(brand, model)` runs, `self.brand` and `self.model` are **attached directly to `self` in memory**.
+> * Inside any child method (e.g. `electric_car_name(self)`), `self` already owns `self.brand` and `self.model`. You read them directly as `self.brand` without needing `super()`.
+> * **Rule of Thumb**:
+>   - Use **`self.attribute_name`** to read/write variables attached to the object.
+>   - Use **`super().method_name()`** only when invoking parent class methods.
+
 ---
 
 ### 🔒 Pillar 2: Encapsulation (The Closed Car Bonnet)
