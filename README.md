@@ -63,6 +63,7 @@ Here is the index of all chapters, deep-dive guides, and practice problem sets i
 ### 7️⃣ Chapter 07: Object-Oriented Programming (OOPs)
 | Topic | Key Focus Areas | Link |
 | :--- | :--- | :--- |
+| **OOP Easy Guide** | The Car Factory analogy explaining Class vs Object, `self`, `__init__`, the 4 Pillars (Inheritance, Encapsulation, Polymorphism, Abstraction), Class Variables, Static Methods, and `@property`. | [Go to OOP Easy Guide 🏎️](./07_oops/oops.md) |
 | **OOP Problems & Concepts** | 10 problems covering Classes, Instances, `self`, Inheritance, Encapsulation, Polymorphism, Class Variables, Static Methods, `@property` Decorators, `isinstance()`, and Multiple Inheritance. | [Go to OOP Questions 🚗](./07_oops/questions.md) |
 
 ---
