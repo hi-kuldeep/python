@@ -170,28 +170,82 @@ When you reference a variable inside a function, Python searches for it in a spe
 
 ---
 
-## 🔒 5. Closures & Nested Functions
+## 🔒 5. Closures & Nested Functions (Memory Deep Dive)
 
-A **Closure** occurs when a nested function remembers and retains access to variables from its outer (enclosing) scope, even after the outer function has finished executing and its stack frame has been popped off.
+A **Closure** is a powerful feature in Python where a nested function remembers and retains access to variables from its outer (enclosing) scope, even after the outer function has finished executing and its stack frame has been popped off.
+
+### The 3 Conditions for a Closure to Exist:
+1. We must have a **nested function** (a function inside a function).
+2. The inner nested function must **reference a variable** from the outer function's scope.
+3. The outer function must **return** the inner nested function.
+
+---
+
+### Example: The Power Factory
+Let's define a function that builds custom power functions (like squares or cubes):
 
 ```python
 def power_factory(exponent):
-    # 'exponent' is in the enclosing scope
+    # 'exponent' is an enclosing variable
     def power(base):
+        # 'power' references 'exponent' from its birthplace
         return base ** exponent
     return power
 
+# 'square' is a closure that remembers exponent=2
 square = power_factory(2)
+
+# 'cube' is a closure that remembers exponent=3
 cube = power_factory(3)
 
 print(square(5)) # Output: 25
 print(cube(5))   # Output: 125
 ```
 
-### How does this work in memory?
-Even though `power_factory(2)` has completed and its frame is gone:
-- The inner function `power` keeps a special reference to `exponent` inside its `__closure__` attribute.
-- This prevents the outer variable from being garbage collected!
+---
+
+### How Does This Work in Memory? (Under the Hood)
+
+Normally, when a function like `power_factory(2)` finishes executing, its stack frame (containing `exponent`) is popped off the Call Stack and destroyed.
+
+However, since `power_factory` returns the inner `power` function object, Python detects that `power` relies on `exponent`. 
+Instead of deleting `exponent`, Python:
+1. Packages the `exponent` variable into a special **Cell Object** in Heap memory.
+2. Attaches a reference to this cell inside the inner function's special **`__closure__`** dunder attribute.
+3. The variables in `__closure__` stay alive as long as the returned function object is referenced!
+
+#### 🗺️ Memory Reference Layout for Closures:
+```mermaid
+graph TD
+    subgraph References [Variables / Pointers]
+        square[square]
+    end
+
+    subgraph Heap [Memory Space / Objects]
+        FuncObj["Function Object: 'power'<br/>(Address: 0x102f4a000)<br/>__closure__ points to cells"]
+        CellObj["Cell Object<br/>(Address: 0x102f90cc0)"]
+        val2((2))
+    end
+
+    square ===> FuncObj
+    FuncObj -.->|__closure__| CellObj
+    CellObj -.->|contains| val2
+```
+
+---
+
+### 🔍 Inspecting a Closure's Backpack
+You can actually peek inside a function's `__closure__` attribute to see the values it is holding onto in memory:
+
+```python
+# 1. Inspect the __closure__ tuple
+print(square.__closure__)
+# Output: (<cell at 0x102f90cc0: int object at 0x100223f10>,)
+
+# 2. Extract the actual value stored inside the cell
+print(square.__closure__[0].cell_contents)
+# Output: 2
+```
 
 ---
 
