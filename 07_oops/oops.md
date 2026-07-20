@@ -170,16 +170,44 @@ print(Car.total_cars) # Output: 2
 ---
 
 ### B. Static Methods (`@staticmethod`)
-A static method is a utility helper function that lives inside the class, but does not need access to `self` or any specific car data.
+
+A **Static Method** is a utility function that lives inside a Class for organizational purposes, but **does NOT require access to `self`** (instance data) or **`cls`** (class data).
+
+#### Key Characteristics:
+1. **No `self` Parameter**: It does not take `self` as its first argument.
+2. **Independent**: It cannot read or modify instance attributes (like `self.brand`) or class variables (like `Car.total_car`).
+3. **Pure Helper/Utility**: Useful for logic that logically belongs to the class concept, but works independently of any specific car object.
 
 ```python
 class Car:
-    @staticmethod
-    def general_description():
-        return "Cars are 4-wheeled motor vehicles used for transportation."
+    def __init__(self, brand, model):
+        self.brand = brand
+        self.model = model
 
-print(Car.general_description())
+    # Static method decorator
+    @staticmethod
+    def get_description():
+        return "Cars are motor vehicles used for transportation."
+
+# Calling via Class Name (Recommended)
+print(Car.get_description())
+
+# Calling via Instance (Also works)
+my_car = Car("Toyota", "Urban Cruiser")
+print(my_car.get_description())
 ```
+
+> [!NOTE]
+> **Why use `@staticmethod` instead of a regular function?**
+> It keeps your codebase clean and organized! If a function is specifically related to cars (e.g., validating a car VIN number or returning a general car description), putting it inside the `Car` class namespace using `@staticmethod` makes your code modular and readable.
+
+#### 📊 Method Types Comparison in Python
+
+| Method Type | Decorator | First Parameter | Accesses `self`? | Primary Use Case |
+| :--- | :--- | :--- | :--- | :--- |
+| **Instance Method** | None | `self` | **Yes** (`self.brand`) | Operating on specific object data |
+| **Class Method** | `@classmethod` | `cls` | **No** (Accesses `cls.total_car`) | Operating on class-wide data / Factory constructors |
+| **Static Method** | `@staticmethod` | None | **No** | Standalone helper / utility functions inside class namespace |
 
 ---
 
