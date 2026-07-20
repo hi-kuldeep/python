@@ -68,6 +68,13 @@ Here is the index of all chapters, deep-dive guides, and practice problem sets i
 
 ---
 
+### 8️⃣ Chapter 08: Python Decorators
+| Topic | Key Focus Areas | Link |
+| :--- | :--- | :--- |
+| **Decorator Problems** | 3 core practice problems covering Timing Function Execution, Debugging Function Calls, and Caching Return Values. | [Go to Decorator Questions 🎨](./08_decorators/questions.md) |
+
+---
+
 ## 🚀 How to Run Python Scripts
 
 To run any script in this repository, navigate to the root directory or specific folder and run:
