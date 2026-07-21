@@ -75,6 +75,13 @@ Here is the index of all chapters, deep-dive guides, and practice problem sets i
 
 ---
 
+### 9️⃣ Chapter 09: Error Handling & Resource Management
+| Topic | Key Focus Areas | Link |
+| :--- | :--- | :--- |
+| **Error Handling & Context Managers** | Manual resource cleanup with `try...finally` vs pythonic context managers (`with open()`). | [Go to Error Handling Guide 🛡️](./09_error_handling/error_handling.md) \| [Go to Code Example 🐍](./09_error_handling/error_handle.py) |
+
+---
+
 ## 🚀 How to Run Python Scripts
 
 To run any script in this repository, navigate to the root directory or specific folder and run:
